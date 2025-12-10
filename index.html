@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       body,html{
+            height: 100%;
+            overflow: hidden;
+        }
+           .bg-layer {
+            position: fixed;  
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;  
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            animation: bg-image 30s infinite ease-in-out;  
+            transition: background-image 0.4s ease;
+        }
+        .preload-images {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        .preload-images img {
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+        /*@keyframes bg-image{
+            0%,18%{
+                background-image: url(背景图/图片1.jpg);
+            }
+            18%,20%{
+                 background-image: url(背景图/图片2.jpg);
+            }
+            20%,38%{
+                background-image: url(背景图/图片2.jpg);
+            }
+            38%,40%{
+                 background-image: url(背景图/图片3.jpg);
+            }
+            40%,58%{
+                background-image: url(背景图/图片3.jpg);
+            }
+            58%,60%{
+                 background-image: url(背景图/图片4.jpg);
+            }
+            60%,78%{
+                 background-image: url(背景图/图片4.jpg);
+            }
+            78%,80%{
+                 background-image: url(背景图/图片5.jpg);
+            }
+            80%,98%{
+                 background-image: url(背景图/图片5.jpg);
+            }
+            98%,100%{
+                 background-image: url(背景图/图片1.jpg);
+            }
+        }*/
+        .head{
+            width: 100%;
+            height: 150px;
+            background: transparent;
+            text-align: center;
+            line-height: 150px;
+            font-size: 45px;
+            display: flex;
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; 
+            padding: 0 20px;
+        }
+        .header{
+            font-size: 6vw;
+            font-weight: 600;
+            margin: 0;
+            position: static;
+            transform: none;
+            background: linear-gradient(to right ,rgb(243, 88, 163),rgb(239, 235, 40));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .head-right{
+             background: linear-gradient(to right ,rgb(243, 88, 163),rgb(63, 78, 243));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3.5vw;
+            position: static;
+            transform: none;
+            white-space: nowrap;
+        }
+        .nav{
+            width: 100%;
+            height: 100px;
+            background: rgba(249, 227, 186,0.7);
+            position: relative;
+        }
+        .nav-title{
+            position: absolute;
+            width: 200px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .nav-text{
+             text-decoration: none;
+             color: black;
+             font-size: 30px;
+             display: block;
+        }
+        .nav-title a:hover{
+             text-decoration: none; 
+            color: black; 
+            font-size: 30px;
+            transition: all 0.4s ease;
+        }
+        .droplist{
+            position: absolute;
+             text-decoration: none;
+             color: black;
+             list-style: none;
+             top: 100%;  
+             left: 0;
+             width: 100%;  
+             background:rgba(249, 227, 186,0.7);  
+             display: none;
+             margin: 0;
+             padding: 0;
+             border-radius: 0 0 10px 10px;
+             transition: all 1s ease;
+        }
+        .droplist li a {
+            text-decoration: none; 
+            color: black; 
+            font-size: 30px;
+            line-height: 60px;
+            display: block;
+            transition: all 0.4s ease;
+        }
+        .nav-title a:hover{
+            color: red;
+            cursor: pointer;
+            transform: scale(1.15);
+        }
+        .droplist li a:hover {
+            color: red;
+            transform: scale(1.15);
+            cursor: pointer;
+        }
+        .nav-title:hover .droplist {
+            display: block;
+        }
+        @media (max-width: 480px) {
+            .head {
+                gap: 10px;  
+            }
+            .header {
+                font-size: 8vw;  
+            }
+            .head-right {
+                font-size: 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"></div>
+     <div class="preload-images">
+        <img src="背景图/图片1.jpg" alt="预加载">
+        <img src="背景图/图片2.jpg" alt="预加载">
+        <img src="背景图/图片3.jpg" alt="预加载">
+        <img src="背景图/图片4.jpg" alt="预加载">
+        <img src="背景图/图片5.jpg" alt="预加载">
+    </div>
+     <div class="head">
+        <div class="header">“缘”</div><div class="head-right">来在这里...</div>
+    </div>
+    <div class="nav">
+        <div class="nav-title"><a href="#" class="nav-text">🏠</a>
+            <ul class="droplist">
+                <li><a href="登录窗口.html">登录</a></li>
+                <li><a href="关于我们.html">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
