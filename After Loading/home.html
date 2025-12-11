@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       body,html{
+            height: 100%;
+            overflow: hidden;
+        }
+        .bg-layer {
+            position: fixed;  
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;  
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            animation: bg-image 30s infinite ease-in-out;  
+            transition: background-image 0.4s ease;
+        }
+        .preload-images {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        .preload-images img {
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+        @keyframes bg-image{ 
+            0%,18%{
+                background-image: url(../背景图/图片1.jpg);
+            }
+            18%,20%{
+                 background-image: url(../背景图/图片2.jpg);
+            }
+            20%,38%{
+                background-image: url(../背景图/图片2.jpg);
+            }
+            38%,40%{
+                 background-image: url(../背景图/图片3.jpg);
+            }
+            40%,58%{
+                background-image: url(../背景图/图片3.jpg);
+            }
+            58%,60%{
+                 background-image: url(../背景图/图片4.jpg);
+            }
+            60%,78%{
+                 background-image: url(../背景图/图片4.jpg);
+            }
+            78%,80%{
+                 background-image: url(../背景图/图片5.jpg);
+            }
+            80%,98%{
+                 background-image: url(../背景图/图片5.jpg);
+            }
+            98%,100%{
+                 background-image: url(../背景图/图片1.jpg);
+            }
+         }
+        .head{
+            width: 100%;
+            height: 150px;
+            background: transparent;
+            text-align: center;
+            line-height: 150px;
+            font-size: 45px;
+            position: relative;
+            z-index: 1;
+            color: rgba(46, 165, 239);
+        }
+        .header{
+            font-size: 70px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 0;
+            vertical-align: middle;
+            position: absolute;
+            top: 50%;
+            left: 43%;
+            transform: translate(-50%,-50%);
+            background: linear-gradient(to right ,rgb(243, 88, 163),rgb(239, 235, 40));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .head-right{
+            position: absolute;
+            top: 55%;
+            left: 55%;
+             transform: translate(-50%,-50%);
+             background: linear-gradient(to right ,rgb(243, 88, 163),rgb(63, 78, 243));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"></div>
+     <div class="preload-images">
+        <img src="背景图/图片1.jpg" alt="预加载">
+        <img src="背景图/图片2.jpg" alt="预加载">
+        <img src="背景图/图片3.jpg" alt="预加载">
+        <img src="背景图/图片4.jpg" alt="预加载">
+        <img src="背景图/图片5.jpg" alt="预加载">
+    </div>
+    <div class="head">
+        <div class="header">“缘”</div><div class="head-right">来在这里...</div>
+    </div>
+</body>
+</html>

@@ -321,9 +321,53 @@
         </div>
         <div class="tip" id="tip"></div>
         <div class="button">
-            <button id="loginBtn">登录</button>
+             <button id="loginBtn" onclick="login()">登录</button>
         </div>
     </div>
-    <script src="login-project/script.js"></script> 
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const tipEl = document.getElementById('tip'); 
+            tipEl.className = 'tip';
+            tipEl.innerText = '';
+            if (!username || !password) {
+                 tipEl.className = 'tip error';
+                tipEl.innerText = '账号和密码不能为空！😯';
+                return;
+            }
+            fetch('http://127.0.0.1:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('网络响应异常');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    tipEl.className = 'tip success';
+                    tipEl.innerText = '登录成功！正在跳转...😝';
+                    setTimeout(() => {
+                    window.location.href = 'After Loading/home.html'; 
+               }, 1000); 
+                } 
+                else {
+                    tipEl.className = 'tip error';
+                    tipEl.innerText = data.msg || '登录失败😅';
+                }
+            })
+            .catch(error => {
+                tipEl.className = 'tip error';
+                tipEl.innerText = '网络错误，请检查后端服务🤪';
+                console.error(error); 
+            });
+        }
+    </script>
 </body>
 </html>
